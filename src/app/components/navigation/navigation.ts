@@ -8,7 +8,8 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: './navigation.html',
-  styleUrl: './navigation.scss'
+  styleUrls: ['./navigation.scss'],
+  
 })
 export class Navigation {
 

@@ -1,8 +1,8 @@
 <nav class="nav-links">
-  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'nav.overview' | t }}</a>
-  <a routerLink="/mcp" routerLinkActive="active">{{ 'nav.mcp' | t }}</a>
-  <a routerLink="/a2a" routerLinkActive="active">{{ 'nav.a2a' | t }}</a>
-  <a routerLink="/pricing" routerLinkActive="active">{{ 'nav.pricing' | t }}</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'Home' | t }}</a>
+  <a routerLink="/mcp" routerLinkActive="active">{{ 'Multi-Context Protocol' | t }}</a>
+  <a routerLink="/a2a" routerLinkActive="active">{{ 'Agent-2-Agent Architecture' | t }}</a>
+  <a routerLink="/pricing" routerLinkActive="active">{{ 'Pricing & Plans' | t }}</a>
 
-  <button class="lang-switch" (click)="toggleLanguage()">{{ i18n.lang() === 'en' ? 'EN' : 'NL' }}</button>
+  <button class="lang-switch" type="button" (click)="toggleLanguage()">{{ i18n.lang() === 'en' ? 'EN' : 'NL' }}</button>
 </nav>

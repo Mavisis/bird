@@ -35,7 +35,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles-folder/styles.scss"
             ]
           },
           "configurations": {
@@ -90,10 +90,15 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles-folder/styles.scss"
             ]
           }
         }

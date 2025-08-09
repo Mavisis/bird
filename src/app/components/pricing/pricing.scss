@@ -1,5 +1,31 @@
+@use "../../../styles-folder/mixins" as *;
+
 .plans { display: grid; gap: 1rem; }
 @media (min-width: 900px) { .plans { grid-template-columns: repeat(3, 1fr); } }
 .plan h3 { margin: 0 0 .5rem; }
 .price { font-size: 2rem; font-weight: 800; margin: .25rem 0 1rem; }
 .featured { border-color: #7c3aed; box-shadow: 0 0 0 1px #7c3aed inset; }
+
+
+
+.pricing {
+  @include container;
+
+  .grid {
+    display: grid;
+    gap: 1rem;
+
+    // 1 column on phones, 2 on tablets, 3 on laptop+
+    grid-template-columns: 1fr;
+
+    @include tablet { grid-template-columns: repeat(2, 1fr); }
+    @include laptop  { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card {
+    padding: 1rem;
+    border-radius: .75rem;
+
+    @include laptop { padding: 1.25rem; }
+  }
+}

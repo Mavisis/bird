@@ -1,0 +1,62 @@
+@use "sass:map";
+@use "sass:math";
+@use "./breakpoints" as *;
+
+// Helper: get breakpoint value
+@function bp($name) {
+  @return map.get($breakpoints, $name);
+}
+
+// Helper: the next breakpoint after $name (for "down" ranges)
+@function next-bp($name) {
+  $keys: map.keys($breakpoints);
+  $index: index($keys, $name);
+  @if $index == null or $index == length($keys) { @return null; }
+  @return map.get($breakpoints, nth($keys, $index + 1));
+}
+
+// Up from breakpoint (inclusive)
+@mixin mq-up($name) {
+  $min: bp($name);
+  @if $min == null { @error "Unknown breakpoint `#{$name}`"; }
+  @media (min-width: $min) { @content; }
+}
+
+// Down until next breakpoint (exclusive)
+@mixin mq-down($name) {
+  $max-next: next-bp($name);
+  @if $max-next == null {
+    // No upper bound (desktop "down" has no effect), just output content.
+    @content;
+  } @else {
+    // Subtract a tiny fraction to avoid overlap
+    @media (max-width: calc(#{$max-next} - 0.02px)) { @content; }
+  }
+}
+
+// Between two named breakpoints (inclusive lower, exclusive upper)
+@mixin mq-between($lower, $upper) {
+  $min: bp($lower);
+  $max: bp($upper);
+  @if $min == null or $max == null { @error "Unknown breakpoint(s) `#{$lower}`, `#{$upper}`"; }
+  @media (min-width: $min) and (max-width: calc(#{$max} - 0.02px)) { @content; }
+}
+
+// Convenience aliases
+@mixin phone { @include mq-down(phone) { @content; } }             // <= 599px
+@mixin tablet { @include mq-between(tablet, laptop) { @content; } } // 600–1023px
+@mixin laptop { @include mq-between(laptop, desktop) { @content; } } // 1024–1439px
+@mixin desktop { @include mq-up(desktop) { @content; } }             // >=1440px
+
+// Optional: feature/UX mixins you might find handy
+@mixin motion-safe { @media (prefers-reduced-motion: no-preference) { @content; } }
+@mixin hover-ok   { @media (hover: hover) and (pointer: fine) { @content; } }
+
+// Optional: container utility (max width evolves with breakpoints)
+@mixin container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @include tablet { max-width: 680px; }
+  @include laptop { max-width: 960px; }
+  @include desktop { max-width: 1200px; }
+}

@@ -1,6 +1,29 @@
+@use "../../../styles-folder/mixins" as *;
+
 .footer { border-top: 1px solid #1f2937; padding: 3rem 0; }
 .center { text-align: center; }
 .brand { display: inline-flex; align-items: center; gap: .5rem; margin-bottom: .75rem; }
 .logo.small { width: 32px; height: 32px; border-radius: .5rem; display: grid; place-items: center; font-weight: 800; background: linear-gradient(90deg, #7c3aed, #db2777); }
 .muted { color: var(--muted); margin: .5rem 0 1rem; }
 .links { display: flex; justify-content: center; gap: 1rem; font-size: .9rem; color: #6b7280; }
+
+
+.footer {
+  @include container;
+  padding-block: 2rem;
+
+  .cols {
+    display: grid;
+    gap: 1rem;
+
+    @include tablet { grid-template-columns: repeat(2, 1fr); }
+    @include laptop  { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .legal {
+    margin-top: 1.5rem;
+    text-align: center;
+
+    @include laptop { text-align: left; }
+  }
+}

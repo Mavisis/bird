@@ -1,4 +1,7 @@
-.hero .grid { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@use "../../../styles-folder/mixins" as *;
+
+
+.hero .grid { display: grid; grid-template-columns: 1fr; gap: 2rem; padding-left: 5rem; }
 @media (min-width: 960px) { .hero .grid { grid-template-columns: 1fr 1fr; align-items: center; } }
 .title { font-weight: 800; font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.1; margin: 0 0 1rem; }
 .block { display: block; }
@@ -10,3 +13,42 @@
 .dot { position: absolute; border-radius: 9999px; }
 .dot-1 { width: 5rem; height: 5rem; background: #db2777; transform: translate(8rem, -9rem); }
 .dot-2 { width: 4rem; height: 4rem; background: #7c3aed; transform: translate(-9rem, 7rem); animation-delay: .4s; }
+
+
+
+.hero {
+  position: relative;
+  padding-block: 4rem;
+  text-align: center;
+
+  @include tablet { padding-block: 6rem; }
+  @include laptop { padding-block: 8rem; }
+
+  .headline {
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    margin: 0 auto 1rem;
+
+    @include phone { max-width: 22ch; }
+    @include tablet { max-width: 28ch; }
+    @include laptop { max-width: 36ch; }
+  }
+
+  .subhead {
+    opacity: 0.85;
+    font-size: clamp(1rem, 2.4vw, 1.25rem);
+    margin: 0 auto 2rem;
+    @include phone { max-width: 36ch; }
+    @include laptop { max-width: 60ch; }
+  }
+
+  .cta-row {
+    display: flex;
+    gap: .75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include phone { gap: .5rem; }
+    @include laptop { gap: 1rem; }
+  }
+}

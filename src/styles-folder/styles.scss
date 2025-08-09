@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 // @use "../../node_modules/bootstrap/scss/bootstrap" as *;
 // @use "bootstrap/scss/bootstrap" as *;
+// Global entry: expose mixins for components
+@use "breakpoints";
+@use "mixins";
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -16,6 +19,7 @@
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
+  padding: 2rem;
   margin: 0;
   font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
   background: var(--bg);
@@ -35,8 +39,8 @@ body {
 .float { animation: float 3s ease-in-out infinite; }
 @keyframes float { 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(-10px)} }
 
-.container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
-.section { padding: 6rem 0; }
+.container { max-width: 95%; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 4rem 0; }
 .btn {
   appearance: none; border: 0; cursor: pointer; font-weight: 600; border-radius: 999px;
   padding: .9rem 1.5rem; transition: transform .15s ease, filter .2s ease;

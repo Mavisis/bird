@@ -1,0 +1,7 @@
+// Mobile‑first breakpoints (Tailwind-ish values, tweak if you like)
+$breakpoints: (
+  phone: 0,        // up to 599px
+  tablet: 600px,   // 600–1023px
+  laptop: 1024px,  // 1024–1439px
+  desktop: 1440px  // 1440px and up
+);

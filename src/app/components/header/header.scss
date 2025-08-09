@@ -1,4 +1,50 @@
-.nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+@use "../../../styles-folder/mixins" as *;
+
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 0.3rem 0; }
 .brand { display: flex; align-items: center; gap: .5rem; }
 .logo { width: 40px; height: 40px; border-radius: .75rem; display: grid; place-items: center; font-weight: 800; background: linear-gradient(90deg, #7c3aed, #db2777); }
 .name { font-weight: 800; font-size: 1.1rem; }
+
+
+
+
+.header {
+  @include container;
+
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  gap: .75rem;
+  padding-block: .75rem;
+
+  @include tablet {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    img { width: 28px; height: 28px; }
+    @include tablet { img { width: 32px; height: 32px; } }
+  }
+
+  .nav-toggle {
+    justify-self: end;
+
+    @include laptop {
+      display: none; // hide burger on laptop+
+    }
+  }
+
+  .nav-inline {
+    display: none;
+
+    @include laptop {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
+}

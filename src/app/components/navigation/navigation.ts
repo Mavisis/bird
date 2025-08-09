@@ -15,7 +15,7 @@ export class Navigation {
 
   constructor(public i18n: I18nService) {}
   toggleLanguage() {
-    const next: Lang = this.i18n.lang() === 'en' ? 'nl' : 'en';
+    const next: Lang = this.i18n.lang() === 'nl' ? 'en' : 'nl';
     this.i18n.load(next);
   }
 

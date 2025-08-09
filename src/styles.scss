@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #000;
+  --text: #fff;
+  --muted: #9ca3af;
+  --indigo: #6366f1;
+  --violet: #8b5cf6;
+  --pink: #ec4899;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+  background: var(--bg);
+  color: var(--text);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--indigo) 0%, var(--violet) 50%, var(--pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+@keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.5 } }
+
+.float { animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(-10px)} }
+
+.container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 6rem 0; }
+.btn {
+  appearance: none; border: 0; cursor: pointer; font-weight: 600; border-radius: 999px;
+  padding: .9rem 1.5rem; transition: transform .15s ease, filter .2s ease;
+}
+.btn-primary { background: linear-gradient(90deg, #7c3aed, #db2777); color: white; }
+.btn-outline { border: 1px solid #4b5563; color: white; background: transparent; }
+.btn:hover { transform: scale(1.03); }
+
+.card { background: #111827; border: 1px solid #1f2937; border-radius: 1rem; padding: 1.25rem; }
+.hr { border: 0; border-top: 1px solid #1f2937; margin: 2rem 0; }
+
+.sticky-nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); background: rgba(0,0,0,.75); border-bottom: 1px solid #1f2937; }
+.link { color: #d1d5db; text-decoration: none; }
+.link:hover { color: white; }

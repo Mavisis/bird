@@ -1,0 +1,4 @@
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+.brand { display: flex; align-items: center; gap: .5rem; }
+.logo { width: 40px; height: 40px; border-radius: .75rem; display: grid; place-items: center; font-weight: 800; background: linear-gradient(90deg, #7c3aed, #db2777); }
+.name { font-weight: 800; font-size: 1.1rem; }

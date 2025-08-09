@@ -1,0 +1,6 @@
+.h2 { font-size: clamp(1.75rem, 3.5vw, 2.25rem); font-weight: 800; margin: 0 0 .5rem; }
+.sub { color: #9ca3af; font-size: 1.1rem; margin-bottom: 1.5rem; }
+.grid2 { display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+.list { list-style: none; padding: 0; margin: .5rem 0 0; display: grid; gap: .35rem; color: #d1d5db; }
+.steps { margin: 0; padding-left: 1.25rem; display: grid; gap: .5rem; color: #d1d5db; }

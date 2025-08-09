@@ -1,0 +1,5 @@
+.plans { display: grid; gap: 1rem; }
+@media (min-width: 900px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+.plan h3 { margin: 0 0 .5rem; }
+.price { font-size: 2rem; font-weight: 800; margin: .25rem 0 1rem; }
+.featured { border-color: #7c3aed; box-shadow: 0 0 0 1px #7c3aed inset; }

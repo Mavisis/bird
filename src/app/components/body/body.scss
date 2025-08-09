@@ -1,0 +1,6 @@
+.body { position: relative; min-height: calc(100vh - 160px); }
+.bg-blobs { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.blob { position: absolute; border-radius: 9999px; filter: blur(64px); opacity: .2; }
+.blob-1 { top: -10rem; right: -10rem; width: 20rem; height: 20rem; background: #7c3aed; }
+.blob-2 { bottom: -10rem; left: -10rem; width: 20rem; height: 20rem; background: #db2777; animation-delay: .6s; }
+.blob-3 { top: 40%; left: 50%; transform: translate(-50%, -50%); width: 24rem; height: 24rem; background: #4f46e5; opacity: .12; animation-delay: .3s; }

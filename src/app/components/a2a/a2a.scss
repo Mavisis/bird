@@ -1,0 +1,6 @@
+.flow { display: grid; gap: .75rem; }
+.flow-item { display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: center; }
+.badge, .node { width: 1.75rem; height: 1.75rem; border-radius: 999px; display: grid; place-items: center; font-weight: 800; font-size: .8rem; }
+.badge { background: #7c3aed; }
+.node { background: #2563eb; }
+.muted { color: #d1d5db; }

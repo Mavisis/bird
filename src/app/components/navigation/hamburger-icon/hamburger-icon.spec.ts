@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavigationComponent } from './navigation';
+import { HamburgerIcon } from './hamburger-icon';
 
-describe('Navigation', () => {
-  let component: NavigationComponent;
-  let fixture: ComponentFixture<NavigationComponent>;
+describe('HamburgerIcon', () => {
+  let component: HamburgerIcon;
+  let fixture: ComponentFixture<HamburgerIcon>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationComponent]
+      imports: [HamburgerIcon]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NavigationComponent);
+    fixture = TestBed.createComponent(HamburgerIcon);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

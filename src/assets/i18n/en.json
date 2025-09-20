@@ -1,8 +1,9 @@
 {
-  "nav.overview": "Overview",
-  "nav.mcp": "MCP",
-  "nav.a2a": "A2A Workflow",
-  "nav.pricing": "Pricing",
+"nav.problem": "PRoblem",
+  "nav.solution": "Solution",
+  "nav.features": "Functionality ",
+  "nav.planner": "Demo Planner",
+  "nav.contact":"Contact Us",
 
   "hero.title.1": "Introducing",
   "hero.title.q": "Q",

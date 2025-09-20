@@ -1,50 +1,30 @@
 @use "../../../styles-folder/mixins" as *;
+@use "../../../styles-folder/styles" as *;
 
-.nav { display: flex; align-items: center; justify-content: space-between; padding: 0.3rem 0; }
-.brand { display: flex; align-items: center; gap: .5rem; }
-.logo { width: 40px; height: 40px; border-radius: .75rem; display: grid; place-items: center; font-weight: 800; background: linear-gradient(90deg, #7c3aed, #db2777); }
-.name { font-weight: 800; font-size: 1.1rem; }
+@include mq-between(phone, tablet)  {
 
 
-
-
-.header {
-  @include container;
-
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr auto;
-  gap: .75rem;
-  padding-block: .75rem;
-
-  @include tablet {
-    grid-template-columns: auto 1fr auto;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-
-    img { width: 28px; height: 28px; }
-    @include tablet { img { width: 32px; height: 32px; } }
-  }
-
-  .nav-toggle {
-    justify-self: end;
-
-    @include laptop {
-      display: none; // hide burger on laptop+
-    }
-  }
-
-  .nav-inline {
-    display: none;
-
-    @include laptop {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-  }
 }
+// desktop style 
+.sticky-nav{
+  position:fixed; inset:0 auto auto 0; right:0; z-index:50;
+  background:var(--background);
+  backdrop-filter: blur(0.8rem);
+  border-bottom: 0.1rem solid var(--border);
+}
+
+.container-nav{ max-width:var(--container-max); margin:0 auto; }
+.nav-container{ max-width:var(--container-max); margin:0 auto; }
+.nav-content{
+  display:flex; align-items:center; justify-content:space-between;
+  height:var(--nav-h-mobile);
+  padding-inline:var(--container-pad-inline);
+}
+
+.nav-logo{ display:flex; align-items:center; gap:0.8rem; }
+.logo-icon{
+  width:2.3em; height:2.3em; background:var(--primary); border-radius:0.5em;
+  display:grid; place-items:center;
+}
+.logo-icon span{ color:var(--primary-foreground); font-weight:700; font-size:1.125rem; }
+.logo-text{ font-weight:600; font-size:1.125rem; color:var(--foreground); }

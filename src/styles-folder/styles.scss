@@ -7,13 +7,59 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-:root {
-  --bg: #000;
-  --text: #fff;
-  --muted: #9ca3af;
-  --indigo: #6366f1;
-  --violet: #8b5cf6;
-  --pink: #ec4899;
+:root{
+  /* Brand */
+  --primary: hsl(204,100%,40%);
+  --primary-light: hsl(204,100%,85%);
+  --primary-foreground: #fff;
+
+  --secondary: hsl(22,100%,65%);
+  --secondary-light: hsl(22,100%,95%);
+  --secondary-foreground: hsl(25,25%,15%);
+
+  --accent: hsl(150,60%,50%);
+  --accent-light: hsl(150,60%,95%);
+  --accent-foreground: hsl(150,60%,15%);
+
+  /* Neutral */
+  --background:#fff;
+  --surface:hsl(210,20%,98%);
+  --foreground:hsl(215,25%,15%);
+
+  --muted:hsl(210,15%,92%);
+  --muted-foreground:hsl(215,15%,45%);
+
+  --border:hsl(210,20%,90%);
+  --input:hsl(210,20%,96%);
+
+  /* Gradients */
+  --gradient-hero:linear-gradient(135deg,var(--primary) 0%,hsl(204,100%,55%) 100%);
+  --gradient-warm:linear-gradient(135deg,var(--secondary) 0%,hsl(30,100%,70%) 100%);
+  --gradient-subtle:linear-gradient(180deg,var(--surface) 0%,var(--background) 100%);
+
+  /* Elevation */
+  --shadow-soft:0 4px 12px -2px hsla(204,100%,40%,.1);
+  --shadow-medium:0 8px 25px -5px hsla(204,100%,40%,.15);
+  --shadow-large:0 20px 50px -10px hsla(204,100%,40%,.2);
+
+  /* Motion */
+  --transition-smooth:all .3s cubic-bezier(.4,0,.2,1);
+  --transition-bounce:all .4s cubic-bezier(.68,-.55,.265,1.55);
+
+  --radius:.75rem;
+
+  /* Layout */
+  --container-max:1280px;
+  --container-pad-inline:clamp(16px, 3vw, 24px);
+  --nav-h-mobile: 64px;
+  --nav-h-desktop: 72px;
+
+  /* Fluid type */
+  --fs-hero-title: clamp(1.9rem, 4vw + .6rem, 4rem);
+  --fs-section-title: clamp(1.6rem, 2.2vw + .6rem, 3rem);
+  --fs-body-lg: clamp(1rem, .6vw + .8rem, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: .9rem;
 }
 
 * { box-sizing: border-box; }

@@ -1,8 +1,9 @@
 {
-  "nav.overview": "Overzicht",
-  "nav.mcp": "MCP",
-  "nav.a2a": "A2A Workflow",
-  "nav.pricing": "Prijzen",
+  "nav.problem": "Probleem",
+  "nav.solution": "Oplossing",
+  "nav.features": "Functies",
+  "nav.planner": "Demo Planner",
+  "nav.contact":"Contact Opnemen",
 
   "hero.title.1": "Maak kennis met",
   "hero.title.q": "Q",

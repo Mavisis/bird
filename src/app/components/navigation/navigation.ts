@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
-import { I18nService, Lang } from '../../core/i18n/i18n.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { NavigationService } from '../../core/navigation/navigation.service';
+import { HamburgerIcon } from './hamburger-icon/hamburger-icon';
+import { NavigationMenu } from './navigation-menu/navigation-menu';
 
 @Component({
-  selector: 'app-navigation',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  selector: 'NavigationComponent',
   templateUrl: './navigation.html',
-  styleUrls: ['./navigation.scss'],
-  
+  imports: [],
+  styleUrls: ['./navigation.scss']
 })
-export class Navigation {
+export class NavigationComponent {
+  constructor(private menuService: NavigationService) {}
 
-  constructor(public i18n: I18nService) {}
-  toggleLanguage() {
-    const next: Lang = this.i18n.lang() === 'nl' ? 'en' : 'nl';
-    this.i18n.load(next);
+  toggleMenu() {
+    this.menuService.toggleMenu();
   }
-
 }

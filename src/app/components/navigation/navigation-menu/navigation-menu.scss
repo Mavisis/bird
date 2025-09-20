@@ -1,0 +1,12 @@
+@use "../../../../styles-folder/mixins" as *;
+@use "../../../../styles-folder/styles" as *;
+
+nav {
+  /* Base styles for the menu */
+  display: none;
+  /* Add more styling for the menu here */
+}
+
+nav.active {
+  display: block; /* Show the menu when active */
+}

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Navigation } from '../navigation/navigation';
+import { NavigationComponent } from '../navigation/navigation';
+import { NavigationMenu } from "../navigation/navigation-menu/navigation-menu";
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [Navigation],
+  imports: [NavigationComponent],
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })

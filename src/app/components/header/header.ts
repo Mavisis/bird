@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavigationComponent } from '../navigation/navigation';
-import { NavigationMenu } from "../navigation/navigation-menu/navigation-menu";
 
 @Component({
   selector: 'app-header',
@@ -8,6 +7,12 @@ import { NavigationMenu } from "../navigation/navigation-menu/navigation-menu";
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
+// @Component({
+//   selector: 'app-header',
+//   imports: [NavigationComponent],
+//   template: '<NavigationComponent></NavigationComponent>',
+// })
+
 export class Header {
 
 }

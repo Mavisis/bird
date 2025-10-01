@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit} from '@angular/core';
-import { NavigationService } from '../../core/navigation/navigation.service';
 
 
 @Component({
@@ -12,7 +11,7 @@ export class NavigationComponent implements OnInit {
 
    isMobileMenuOpen = false;
 
-  constructor(private elementRef: ElementRef, menuService: NavigationService) {}
+  constructor(private elementRef: ElementRef) {}
 
   ngOnInit(): void {
     this.initScrollEffect();
@@ -47,7 +46,7 @@ export class NavigationComponent implements OnInit {
     
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
-      const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 80;
+      const offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset - 800;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'

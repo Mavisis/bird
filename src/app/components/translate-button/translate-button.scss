@@ -1,3 +1,15 @@
+@use "../../../styles-folder/mixins" as *;
+@use "../../../styles-folder/styles.scss" as *;
+
+:host {
+  position: fixed;
+  bottom: 1rem;   // distance from bottom
+  left: 1rem;     // distance from left
+  z-index: 1000;  // ensure it floats above other UI
+  
+}
+
+
 .lang-btn {
     display: inline-flex;
     align-items: center;
@@ -5,19 +17,19 @@
     padding: 0.5rem 0.875rem;
     border: none;
     border-radius: 9999px;
-    // background: rgba(0, 0, 0, 0.06);
+    background: var(--secondary);
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
 
     &:hover {
         transform: translateY(-1px);
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-        background: rgba(0, 0, 0, 0.08);
+        background: var(--accent);
     }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
+        // box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
     }
 }
 
@@ -30,6 +42,7 @@
 }
 
 .lang-text {
+    color: var(--text);
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.02em;

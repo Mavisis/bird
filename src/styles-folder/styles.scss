@@ -8,50 +8,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
+:root {
   /* Brand */
-  --primary: hsl(204,100%,40%);
-  --primary-light: hsl(204,100%,85%);
+  --primary: hsl(204, 100%, 40%);
+  --primary-light: hsl(204, 100%, 85%);
   --primary-foreground: #fff;
 
-  --secondary: hsl(22,100%,65%);
-  --secondary-light: hsl(22,100%,95%);
-  --secondary-foreground: hsl(25,25%,15%);
+  --secondary: hsl(22, 100%, 65%);
+  --secondary-light: hsl(22, 100%, 95%);
+  --secondary-foreground: hsl(25, 25%, 15%);
 
-  --accent: hsl(150,60%,50%);
-  --accent-light: hsl(150,60%,95%);
-  --accent-foreground: hsl(150,60%,15%);
+  --accent: hsl(150, 60%, 50%);
+  --accent-light: hsl(150, 60%, 95%);
+  --accent-foreground: hsl(150, 60%, 15%);
 
   /* Neutral */
-  --background:#fff;
-  --surface:hsl(210,20%,98%);
-  --foreground:hsl(215,25%,15%);
+  --background: #fff;
+  --surface: hsl(210, 20%, 98%);
+  --foreground: hsl(215, 25%, 15%);
 
-  --muted:hsl(210,15%,92%);
-  --muted-foreground:hsl(215,15%,45%);
+  --muted: hsl(210, 15%, 92%);
+  --muted-foreground: hsl(215, 15%, 45%);
 
-  --border:hsl(210,20%,90%);
-  --input:hsl(210,20%,96%);
+  --border: hsl(210, 20%, 90%);
+  --input: hsl(210, 20%, 96%);
 
   /* Gradients */
-  --gradient-hero:linear-gradient(135deg,var(--primary) 0%,hsl(204,100%,55%) 100%);
-  --gradient-warm:linear-gradient(135deg,var(--secondary) 0%,hsl(30,100%,70%) 100%);
-  --gradient-subtle:linear-gradient(180deg,var(--surface) 0%,var(--background) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--primary) 0%, hsl(204, 100%, 55%) 100%);
+  --gradient-warm: linear-gradient(135deg, var(--secondary) 0%, hsl(30, 100%, 70%) 100%);
+  --gradient-subtle: linear-gradient(180deg, var(--surface) 0%, var(--background) 100%);
 
   /* Elevation */
-  --shadow-soft:0 4px 12px -2px hsla(204,100%,40%,.1);
-  --shadow-medium:0 8px 25px -5px hsla(204,100%,40%,.15);
-  --shadow-large:0 20px 50px -10px hsla(204,100%,40%,.2);
+  --shadow-soft: 0 4px 12px -2px hsla(204, 100%, 40%, .1);
+  --shadow-medium: 0 8px 25px -5px hsla(204, 100%, 40%, .15);
+  --shadow-large: 0 20px 50px -10px hsla(204, 100%, 40%, .2);
 
   /* Motion */
-  --transition-smooth:all .3s cubic-bezier(.4,0,.2,1);
-  --transition-bounce:all .4s cubic-bezier(.68,-.55,.265,1.55);
+  --transition-smooth: all .3s cubic-bezier(.4, 0, .2, 1);
+  --transition-bounce: all .4s cubic-bezier(.68, -.55, .265, 1.55);
 
-  --radius:.75rem;
+  --radius: .75rem;
 
   /* Layout */
-  --container-max:1280px;
-  --container-pad-inline:clamp(16px, 3vw, 24px);
+  --container-max: 1280px;
+  --container-pad-inline: clamp(16px, 3vw, 24px);
   --nav-h-mobile: 64px;
   --nav-h-desktop: 72px;
 
@@ -61,15 +61,24 @@
   --fs-body-lg: clamp(1rem, .6vw + .8rem, 1.25rem);
   --fs-body: 1rem;
   --fs-small: .9rem;
+
+  --text: hsl(215, 20%, 20%);
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   padding: 0.4em;
   width: 100%;
   margin: 0;
-  font-family: 'Bodoni',;
+  font-family: 'Bodoni', ;
   background: var(--bg);
   color: var(--text);
 }
@@ -81,25 +90,100 @@ body {
   background-clip: text;
 }
 
-.pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-@keyframes pulse { 0%,100% { opacity:1 } 50% { opacity:.5 } }
-
-.float { animation: float 3s ease-in-out infinite; }
-@keyframes float { 0%,100%{ transform: translateY(0)} 50%{ transform: translateY(-10px)} }
-
-.container { max-width: 95%; margin: 0 auto; padding: 0 1.5rem; }
-.section { padding: 4rem 0; }
-.btn {
-  appearance: none; border: 0; cursor: pointer; font-weight: 600; border-radius: 999px;
-  padding: .9rem 1.5rem; transition: transform .15s ease, filter .2s ease;
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
-.btn-primary { background: linear-gradient(90deg, #7c3aed, #db2777); color: white; }
-.btn-outline { border: 1px solid #4b5563; color: white; background: transparent; }
-.btn:hover { transform: scale(1.03); }
 
-.card { background: #111827; border: 1px solid #1f2937; border-radius: 1rem; padding: 1.25rem; }
-.hr { border: 0; border-top: 1px solid #1f2937; margin: 2rem 0; }
+@keyframes pulse {
 
-.sticky-nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); background: rgba(0,0,0,.75); border-bottom: 1px solid #1f2937; }
-.link { color: #d1d5db; text-decoration: none; }
-.link:hover { color: white; }
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: .5
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0)
+  }
+
+  50% {
+    transform: translateY(-10px)
+  }
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: .9rem 1.5rem;
+  transition: transform .15s ease, filter .2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #7c3aed, #db2777);
+  color: white;
+}
+
+.btn-outline {
+  border: 1px solid #4b5563;
+  color: white;
+  background: transparent;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+}
+
+.card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.hr {
+  border: 0;
+  border-top: 1px solid #1f2937;
+  margin: 2rem 0;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, .75);
+  border-bottom: 1px solid #1f2937;
+}
+
+.link {
+  color: #d1d5db;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: white;
+}

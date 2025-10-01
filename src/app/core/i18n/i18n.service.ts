@@ -13,7 +13,7 @@ export class I18nService {
   dict = computed(() => this.dictSig());
 
   constructor(private http: HttpClient) {
-    this.load('en');
+    this.load('nl');
   }
 
   async load(lang: Lang) {

@@ -1,4 +1,6 @@
 {
+  "nav.home": "Home",
+  "nav.about": "Over",
   "nav.problem": "Probleem",
   "nav.solution": "Oplossing",
   "nav.features": "Functies",

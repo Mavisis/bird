@@ -1,0 +1,35 @@
+@use "../../../styles-folder/mixins" as *;
+@use "../../../styles-folder/styles.scss" as *;
+
+.cta-button {
+//   display: inline-block;
+  padding: 0.85rem 2rem;
+//   font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--secondary); // violet-indigo gradient
+  border: none;
+  border-radius: 9999px; // fully rounded pill
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: var(--shadow-large);
+  align-items: center;
+  display: flex;
+  
+
+  &:hover {
+    background: var(--accent); // darker hover
+    // transform: translateY(-2px);
+    box-shadow: var(--secondary);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.35);
+  }
+}

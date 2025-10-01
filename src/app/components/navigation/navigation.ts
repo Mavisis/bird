@@ -1,12 +1,15 @@
 import { Component, ElementRef, OnInit} from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Cta } from '../../core/cta/cta';
+import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { TranslateButton } from "../translate-button/translate-button";
 
 
 @Component({
   selector: 'NavigationComponent',
   templateUrl: './navigation.html',
   styleUrls: ['./navigation.scss'],
-  imports: [RouterLink, RouterLinkActive]
+  imports: [RouterLink, RouterLinkActive, Cta, TranslatePipe, TranslateButton]
 })
 export class NavigationComponent implements OnInit {
   

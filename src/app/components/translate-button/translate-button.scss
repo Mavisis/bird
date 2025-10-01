@@ -1,0 +1,36 @@
+.lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border: none;
+    border-radius: 9999px;
+    // background: rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        background: rgba(0, 0, 0, 0.08);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
+    }
+}
+
+.flag {
+    width: 22px;
+    height: 22px;
+    border-radius: 2px;
+    overflow: hidden;
+    display: block;
+}
+
+.lang-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}

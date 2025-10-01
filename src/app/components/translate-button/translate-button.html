@@ -1,0 +1,31 @@
+<button
+  class="lang-btn"
+  type="button"
+  (click)="toggle()"
+  [attr.aria-label]="nextLang() === 'en' ? 'Switch to English' : 'Wissel naar Nederlands'"
+>
+  <ng-container [ngSwitch]="nextLang()">
+    <!-- Show NEXT language flag -->
+    <svg *ngSwitchCase="'en'" class="flag" viewBox="0 0 60 30" aria-hidden="true">
+      <rect width="60" height="30" fill="#012169"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+      <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/>
+      <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/>
+    </svg>
+
+    <svg *ngSwitchCase="'nl'" class="flag" viewBox="0 0 3 2" aria-hidden="true">
+  <!-- Top: red -->
+  <rect width="3" height="0.6667" y="0" fill="#AE1C28"></rect>
+  <!-- Middle: white -->
+  <rect width="3" height="0.6667" y="0.6667" fill="#FFFFFF"></rect>
+  <!-- Bottom: blue -->
+  <rect width="3" height="0.6667" y="1.3333" fill="#21468B"></rect>
+</svg>
+
+  </ng-container>
+
+  <span class="lang-text">
+    {{ nextLang() | uppercase }}
+  </span>
+</button>

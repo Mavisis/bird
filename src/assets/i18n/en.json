@@ -1,10 +1,11 @@
 {
-"nav.problem": "PRoblem",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.problem": "Problem",
   "nav.solution": "Solution",
   "nav.features": "Functionality ",
   "nav.planner": "Demo Planner",
-  "nav.contact":"Contact Us",
-
+  "nav.contact": "Contact Us",
   "hero.title.1": "Introducing",
   "hero.title.q": "Q",
   "hero.title.2": "the",
@@ -12,7 +13,6 @@
   "hero.text": "Q orchestrates advanced Agent-to-Agent workflows using Multi-Context Protocol, enabling seamless collaboration between specialized AI agents to solve complex tasks.",
   "hero.learnMore": "Learn More",
   "hero.viewArchitecture": "View Architecture",
-
   "mcp.title": "Multi-Context Protocol (MCP)",
   "mcp.subtitle": "The foundation of intelligent agent collaboration",
   "mcp.what": "What is MCP?",
@@ -35,7 +35,6 @@
   "mcp.step4.text": "Agent responds with contextually appropriate action",
   "mcp.step5.title": "State Update",
   "mcp.step5.text": "Both agents update their contextual understanding",
-
   "a2a.title": "Agent-to-Agent (A2A) Workflows",
   "a2a.subtitle": "Q orchestrates intelligent collaboration between specialized agents",
   "a2a.ecosystem": "The Q Agent Ecosystem",
@@ -47,7 +46,6 @@
   "a2a.b3": "Context preservation across agents",
   "a2a.b4": "Error recovery and fallback",
   "a2a.b5": "Scalable collaboration",
-
   "pricing.title": "Pricing",
   "pricing.subtitle": "Simple, transparent pricing for teams",
   "pricing.plan.basic": "Starter",

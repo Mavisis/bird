@@ -1,0 +1,597 @@
+/*
+  Angular Global Style System — _variables.scss
+  --------------------------------------------------
+  Drop this file into: src/styles/_variables.scss
+  Then import via `@use` from any component stylesheet.
+
+  Includes:
+  - Design tokens (colors, spacing, radii, shadows, typography, motion)
+  - CSS variables (light + dark themes)
+  - Utility mixins for buttons, forms, cards, focus rings, micro-interactions
+  - Grid helpers & breakpoints
+*/
+
+/* ----------------------------------------------
+   1) COLOR TOKENS (SCSS maps)
+---------------------------------------------- */
+$palette: (
+ primary: (
+  50:  #eff6ff,
+  100: #dbeafe,
+  200: #bfdbfe,
+  300: #93c5fd,
+  400: #60a5fa,
+  500: #3b82f6,
+  600: #2563eb,
+  700: #1d4ed8,
+  800: #1e40af,
+  900: #1e3a8a
+),
+
+secondary: (
+  50:  #f9fafb,
+  100: #f3f4f6,
+  200: #e5e7eb,
+  300: #d1d5db,
+  400: #9ca3af,
+  500: #6b7280,
+  600: #4b5563,
+  700: #374151,
+  800: #1f2937,
+  900: #111827
+),
+complement: (
+  50:  #fff5ef,
+  100: #ffe3d1,
+  200: #ffc9a7,
+  300: #fba874,
+  400: #f98d4f,
+  500: #f6863b, // complement
+  600: #e86c28,
+  700: #c55320,
+  800: #a3411b,
+  900: #893617
+),
+
+monochrome: (
+  50:  #f1f5fc,
+  100: #dbe4f7,
+  200: #b8caf0,
+  300: #8da8e5,
+  400: #7296e1,
+  500: #6191dd, // mono
+  600: #4e76bb,
+  700: #3f5d94,
+  800: #344c78,
+  900: #2c4064
+),
+
+analogous1: (
+  50:  #f3efff,
+  100: #e6dbfe,
+  200: #ccb9fd,
+  300: #ad8afa,
+  400: #8f5ff7,
+  500: #763bf6, // first analogous
+  600: #6624e0,
+  700: #531cba,
+  800: #431893,
+  900: #371575
+),
+
+analogous2: (
+  50:  #effffa,
+  100: #d1fdf0,
+  200: #a6fae0,
+  300: #6cf5cd,
+  400: #45f0bb,
+  500: #3bf6ae, // second analogous
+  600: #2edb96,
+  700: #25b37c,
+  800: #208e63,
+  900: #1b7351
+),
+
+split1: (
+  50:  #fffaef,
+  100: #fff1d1,
+  200: #ffe0a3,
+  300: #fbcb72,
+  400: #f7b94c,
+  500: #f6b43b, // split comp 1
+  600: #e89d28,
+  700: #c57e20,
+  800: #a3631b,
+  900: #895317
+),
+
+split2: (
+  50:  #fff2ef,
+  100: #ffdcd7,
+  200: #ffb8ae,
+  300: #fb8b7c,
+  400: #f76555,
+  500: #f6573b, // split comp 2
+  600: #e84928,
+  700: #c53c20,
+  800: #a3301b,
+  900: #892917
+),
+
+triadic1: (
+  50:  #fffdef,
+  100: #fffad1,
+  200: #fff5a3,
+  300: #fbef72,
+  400: #f9ea4c,
+  500: #f6e33b, // triadic 1
+  600: #e8d028,
+  700: #c5ae20,
+  800: #a38e1b,
+  900: #897717
+),
+
+triadic2: (
+  50:  #fff0f3,
+  100: #ffd9e1,
+  200: #ffb4c5,
+  300: #fb859c,
+  400: #f75d79,
+  500: #f63b5d, // triadic 2
+  600: #e8294d,
+  700: #c52040,
+  800: #a31b35,
+  900: #89172d
+),
+
+tetradic1: (
+  50:  #fff5ef,
+  100: #ffe3d1,
+  200: #ffc9a7,
+  300: #fba874,
+  400: #f98d4f,
+  500: #f6863b, // tetradic 1 (same as complement)
+  600: #e86c28,
+  700: #c55320,
+  800: #a3411b,
+  900: #893617
+),
+
+tetradic2: (
+  50:  #fffdef,
+  100: #fffad1,
+  200: #fff5a3,
+  300: #fbef72,
+  400: #f9ea4c,
+  500: #f6e33b, // tetradic 2 (same as triadic1)
+  600: #e8d028,
+  700: #c5ae20,
+  800: #a38e1b,
+  900: #897717
+),
+
+tetradic3: (
+  50:  #f9efff,
+  100: #efd6fc,
+  200: #ddb0f9,
+  300: #c57af4,
+  400: #ae4fef,
+  500: #d43bf6, // tetradic 3
+  600: #a229e0,
+  700: #8220ba,
+  800: #6a1b93,
+  900: #561775
+),
+
+accent: (
+  50:  #ecfdf5,
+  100: #d1fae5,
+  200: #a7f3d0,
+  300: #6ee7b7,
+  400: #34d399,
+  500: #10b981,
+  600: #059669,
+  700: #047857,
+  800: #065f46,
+  900: #064e3b
+)
+,
+  success: (
+    100: #dcfce7,
+    500: #22c55e,
+    700: #15803d
+  ),
+  warning: (
+    100: #fef9c3,
+    500: #eab308,
+    700: #854d0e
+  ),
+  danger: (
+    100: #fee2e2,
+    500: #ef4444,
+    700: #991b1b
+  ),
+  neutral: (
+    0:   #ffffff,
+    50:  #f9fafb,
+    100: #f3f4f6,
+    200: #e5e7eb,
+    300: #d1d5db,
+    400: #9ca3af,
+    500: #6b7280,
+    600: #4b5563,
+    700: #374151,
+    800: #1f2937,
+    900: #111827,
+    1000:#0b0f16
+  )
+) !default;
+
+// Helpers to fetch palette shades
+@function color($role, $shade) {
+  @return map-get(map-get($palette, $role), $shade);
+}
+
+/* ----------------------------------------------
+   2) TYPOGRAPHY TOKENS
+---------------------------------------------- */
+$font-family-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji" !default;
+$font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+$font-sizes: (
+  xs: 0.75rem,   // 12px
+  sm: 0.875rem,  // 14px
+  base: 1rem,    // 16px
+  lg: 1.125rem,  // 18px
+  xl: 1.25rem,   // 20px
+  2xl: 1.5rem,   // 24px
+  3xl: 1.875rem, // 30px
+  4xl: 2.25rem,  // 36px
+  5xl: 3rem      // 48px
+) !default;
+
+$line-heights: (
+  tight: 1.2,
+  snug: 1.3,
+  normal: 1.5,
+  relaxed: 1.7
+) !default;
+
+$font-weights: (
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+) !default;
+
+/* ----------------------------------------------
+   3) SPACING / RADII / SHADOWS / Z-INDEX / BORDERS
+---------------------------------------------- */
+$space: (
+  0: 0,
+  0_5: 0.125rem, // 2
+  1: 0.25rem,    // 4
+  1_5: 0.375rem, // 6
+  2: 0.5rem,     // 8
+  2_5: 0.625rem, // 10
+  3: 0.75rem,    // 12
+  3_5: 0.875rem, // 14
+  4: 1rem,       // 16
+  5: 1.25rem,    // 20
+  6: 1.5rem,     // 24
+  8: 2rem,       // 32
+  10: 2.5rem,    // 40
+  12: 3rem,      // 48
+  16: 4rem,      // 64
+  20: 5rem       // 80
+) !default;
+
+$radii: (
+  none: 0,
+  sm: 0.25rem,
+  md: 0.5rem,
+  lg: 0.75rem,
+  xl: 1rem,
+  pill: 9999px
+) !default;
+
+$shadows: (
+  xs: 0 1px 2px rgba(0,0,0,0.04),
+  sm: 0 1px 3px rgba(0,0,0,0.08),
+  md: 0 4px 6px rgba(0,0,0,0.10),
+  lg: 0 10px 15px rgba(0,0,0,0.12),
+  xl: 0 20px 25px rgba(0,0,0,0.15)
+) !default;
+
+$z: (
+  base: 0,
+  header: 10,
+  overlay: 100,
+  modal: 1000
+) !default;
+
+$border: (
+  thin: 1px,
+  thick: 2px
+) !default;
+
+/* ----------------------------------------------
+   4) MOTION TOKENS
+---------------------------------------------- */
+$durations: (
+  fast: 120ms,
+  base: 200ms,
+  slow: 320ms
+) !default;
+
+$easings: (
+  standard: cubic-bezier(0.2, 0, 0, 1),
+  emphasized: cubic-bezier(0.2, 0, 0, 1),
+  entrance: cubic-bezier(0.16, 1, 0.3, 1),
+  exit: cubic-bezier(0.7, 0, 0.84, 0)
+) !default;
+
+/* ----------------------------------------------
+   5) BREAKPOINTS & GRID
+---------------------------------------------- */
+$breakpoints: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px
+) !default;
+
+$container-widths: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  2xl: 1360px
+) !default;
+
+$grid: (
+  gutter: map-get($space, 6),
+  section-vspace: map-get($space, 12)
+) !default;
+
+/* ----------------------------------------------
+   6) CSS VARIABLES for runtime theming
+---------------------------------------------- */
+:root {
+  /* base */
+  --color-bg: #{color(neutral, 50)};
+  --color-surface: #{color(neutral, 0)};
+  --color-text: #{color(neutral, 800)};
+  --color-muted: #{color(neutral, 500)};
+
+  /* brand */
+  --color-primary: #{color(primary, 600)};
+  --color-primary-contrast: #{color(neutral, 0)};
+  --color-secondary: #{color(secondary, 600)};
+
+  /* semantic */
+  --color-success: #{map-get(map-get($palette, success), 500)};
+  --color-warning: #{map-get(map-get($palette, warning), 500)};
+  --color-danger:  #{map-get(map-get($palette, danger), 500)};
+
+  /* borders & shadows */
+  --border-color: #{color(neutral, 200)};
+  --shadow-sm: #{map-get($shadows, sm)};
+  --shadow-md: #{map-get($shadows, md)};
+  --shadow-lg: #{map-get($shadows, lg)};
+
+  /* typography */
+  --font-sans: #{$font-family-sans};
+  --font-mono: #{$font-family-mono};
+  --text-base: #{map-get($font-sizes, base)};
+}
+
+/* Dark theme */
+:root[data-theme="dark"] {
+  --color-bg: #{color(neutral, 900)};
+  --color-surface: #{color(neutral, 800)};
+  --color-text: #{color(neutral, 50)};
+  --color-muted: #{color(neutral, 400)};
+
+  --color-primary: #{color(primary, 500)};
+  --color-primary-contrast: #{color(neutral, 1000)};
+  --color-secondary: #{color(secondary, 500)};
+
+  --border-color: #{color(neutral, 700)};
+}
+
+/* ----------------------------------------------
+   7) UTILITY FUNCTIONS & MIXINS
+---------------------------------------------- */
+@function space($key) { @return map-get($space, $key); }
+@function radius($key) { @return map-get($radii, $key); }
+@function shadow($key) { @return map-get($shadows, $key); }
+@function duration($key) { @return map-get($durations, $key); }
+@function easing($key) { @return map-get($easings, $key); }
+@function font-size($key) { @return map-get($font-sizes, $key); }
+@function lh($key) { @return map-get($line-heights, $key); }
+@function fw($key) { @return map-get($font-weights, $key); }
+
+/* Fluid type helper: clamp(min, vw slope, max) */
+@function fluid($min, $max, $minvw: 360, $maxvw: 1440) {
+  $slope: ($max - $min) / ($maxvw - $minvw) * 100;
+  $intercept: $min - ($slope * 1vw * ($minvw / 100));
+  @return clamp(#{$min}, #{$intercept} + #{$slope}vw, #{$max});
+}
+
+/* Focus ring */
+@mixin focus-ring($color: var(--color-primary)) {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35); // default based on primary-500
+  &:focus-visible { box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.55); }
+}
+
+/* Typography mixin */
+@mixin type-set($size: base, $weight: regular, $lh: normal) {
+  font-family: var(--font-sans);
+  font-size: font-size($size);
+  line-height: lh($lh);
+  font-weight: fw($weight);
+  color: var(--color-text);
+}
+
+/* Interactive transition */
+@mixin interactive {
+  transition: all duration(base) easing(standard);
+  will-change: transform, box-shadow, background-color, color;
+}
+
+/* Button mixin */
+@mixin button($variant: primary) {
+  @include type-set(sm, semibold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: space(2);
+  padding: space(3) space(4);
+  border-radius: radius(md);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  @include interactive;
+  box-shadow: var(--shadow-sm);
+
+  @if $variant == primary {
+    background: var(--color-primary);
+    color: var(--color-primary-contrast);
+    &:hover { filter: brightness(1.05); box-shadow: var(--shadow-md); transform: translateY(-1px); }
+    &:active { filter: brightness(0.98); transform: translateY(0); }
+  } @else if $variant == secondary {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--border-color);
+    &:hover { background: color(neutral, 100); }
+  } @else if $variant == ghost {
+    background: transparent;
+    color: var(--color-text);
+    &:hover { background: color(neutral, 100); }
+  } @else if $variant == danger {
+    background: #{map-get(map-get($palette, danger), 500)};
+    color: var(--color-primary-contrast);
+    &:hover { filter: brightness(1.05); }
+  }
+}
+
+/* Link mixin */
+@mixin link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  @include interactive;
+  &:hover { text-decoration-thickness: 2px; }
+}
+
+/* Form field mixins */
+@mixin input-base {
+  @include type-set(base, regular);
+  width: 100%;
+  padding: space(3) space(4);
+  border-radius: radius(md);
+  border: 1px solid var(--border-color);
+  background: var(--color-surface);
+  color: var(--color-text);
+  @include interactive;
+  &::placeholder { color: var(--color-muted); }
+  &:hover { box-shadow: var(--shadow-sm); }
+  &:focus { @include focus-ring(); }
+}
+
+@mixin input-invalid {
+  border-color: #{map-get(map-get($palette, danger), 500)};
+  &:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.25); }
+}
+
+@mixin label {
+  @include type-set(sm, medium);
+  display: inline-block;
+  margin-bottom: space(2);
+  color: var(--color-muted);
+}
+
+@mixin helper-text { @include type-set(sm); color: var(--color-muted); }
+@mixin error-text { @include type-set(sm, medium); color: #{map-get(map-get($palette, danger), 700)}; }
+
+/* Card / Section mixins */
+@mixin card($elevation: md) {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--border-color);
+  border-radius: radius(lg);
+  box-shadow: shadow($elevation);
+  padding: space(6);
+}
+
+@mixin section {
+  padding-block: map-get($grid, section-vspace);
+}
+
+/* Chip/badge (example micro component) */
+@mixin badge($role: primary) {
+  display: inline-flex;
+  align-items: center;
+  gap: space(2);
+  padding: space(1) space(2);
+  border-radius: radius(pill);
+  font-size: font-size(xs);
+  font-weight: fw(semibold);
+  background: color($role, 100);
+  color: color($role, 700);
+}
+
+/* ----------------------------------------------
+   8) GRID HELPERS
+---------------------------------------------- */
+@mixin container($bp: lg) {
+  margin-inline: auto;
+  padding-inline: space(4);
+  max-width: map-get($container-widths, $bp);
+}
+
+@mixin responsive-grid($min: 16rem, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: $gap;
+}
+
+/* ----------------------------------------------
+   9) ACCESSIBILITY HELPERS
+---------------------------------------------- */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* High-contrast focus for keyboard users */
+:focus-visible { outline: 2px dashed var(--color-primary); outline-offset: 2px; }
+
+/* ----------------------------------------------
+   10) EXAMPLE TOKEN USAGE (class utilities)
+   These are optional convenience classes; feel free to delete.
+---------------------------------------------- */
+.btn { @include button(primary); }
+.btn--secondary { @include button(secondary); }
+.btn--ghost { @include button(ghost); }
+
+.input { @include input-base; }
+.input--invalid { @include input-invalid; }
+
+.card { @include card(md); }
+.section { @include section; }
+
+.link { @include link; }
+
+/* Spacing utilities (sample) */
+.mt-4 { margin-top: space(4); }
+.mb-6 { margin-bottom: space(6); }
+.p-6 { padding: space(6); }
+
+/* Typography utilities (sample) */
+.h1 { @include type-set(4xl, bold, tight); }
+.h2 { @include type-set(3xl, bold, tight); }
+.h3 { @include type-set(2xl, semibold, snug); }
+.body { @include type-set(base, regular, normal); }
+.code { font-family: var(--font-mono); font-size: font-size(sm); }

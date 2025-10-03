@@ -1,0 +1,320 @@
+<div class="playground">
+  <!-- Header -->
+  <header class="playground__header">
+    <h1 class="playground__title">Design System Playground</h1>
+    <p class="playground__subtitle">Explore all design tokens, components, and patterns</p>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="playground__tabs">
+    <button
+      *ngFor="let tab of tabs"
+      class="playground__tab"
+      [class.playground__tab--active]="selectedTab === tab.id"
+      (click)="selectTab(tab.id)">
+      {{ tab.label }}
+    </button>
+  </nav>
+
+  <!-- Content Sections -->
+  <main class="playground__content">
+    
+    <!-- COLORS SECTION -->
+    <section *ngIf="selectedTab === 'colors'" class="section">
+      <h2 class="section__title">Color Palettes</h2>
+      <p class="section__description">
+        Complete color system with primary, complementary, analogous, and semantic colors.
+      </p>
+
+      <!-- Main Palettes -->
+      <div class="palette-grid">
+        <div *ngFor="let palette of colorPalettes" class="palette-card">
+          <h3 class="palette-card__title">{{ palette.name }}</h3>
+          <div class="palette-card__colors">
+            <div
+              *ngFor="let shade of palette.shades"
+              class="color-swatch"
+              [style.background-color]="shade.hex"
+              [attr.title]="shade.hex">
+              <span class="color-swatch__label">{{ shade.shade }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semantic Colors -->
+      <h3 class="section__subtitle">Semantic Colors</h3>
+      <div class="semantic-colors">
+        <div *ngFor="let color of semanticColors" class="semantic-card">
+          <div class="semantic-card__swatch" [ngClass]="'semantic-card__swatch--' + color.class"></div>
+          <div class="semantic-card__info">
+            <h4 class="semantic-card__name">{{ color.name }}</h4>
+            <code class="semantic-card__hex">{{ color.hex }}</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- CSS Variables -->
+      <h3 class="section__subtitle">CSS Variables (Runtime Theme)</h3>
+      <div class="css-vars">
+        <div class="css-var-item">
+          <span class="css-var-item__label">--color-primary</span>
+          <div class="css-var-item__preview css-var-item__preview--primary"></div>
+        </div>
+        <div class="css-var-item">
+          <span class="css-var-item__label">--color-bg</span>
+          <div class="css-var-item__preview css-var-item__preview--bg"></div>
+        </div>
+        <div class="css-var-item">
+          <span class="css-var-item__label">--color-surface</span>
+          <div class="css-var-item__preview css-var-item__preview--surface"></div>
+        </div>
+        <div class="css-var-item">
+          <span class="css-var-item__label">--color-text</span>
+          <div class="css-var-item__preview css-var-item__preview--text"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY SECTION -->
+    <section *ngIf="selectedTab === 'typography'" class="section">
+      <h2 class="section__title">Typography System</h2>
+      <p class="section__description">
+        Fluid, accessible typography with clear hierarchy and optimal readability.
+      </p>
+
+      <!-- Type Scale -->
+      <div class="type-scale">
+        <div *ngFor="let example of typographyExamples" class="type-example">
+          <div class="type-example__demo" [ngClass]="example.class">
+            {{ example.text }}
+          </div>
+          <div class="type-example__meta">
+            <span class="type-example__label">{{ example.label }}</span>
+            <code class="type-example__class">.{{ example.class }}</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Font Families -->
+      <h3 class="section__subtitle">Font Families</h3>
+      <div class="font-families">
+        <div class="font-example">
+          <div class="font-example__sample font-example__sample--sans">
+            The quick brown fox jumps over the lazy dog
+          </div>
+          <code class="font-example__code">var(--font-sans)</code>
+        </div>
+        <div class="font-example">
+          <div class="font-example__sample font-example__sample--mono">
+            The quick brown fox jumps over the lazy dog
+          </div>
+          <code class="font-example__code">var(--font-mono)</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPACING SECTION -->
+    <section *ngIf="selectedTab === 'spacing'" class="section">
+      <h2 class="section__title">Spacing & Layout</h2>
+      <p class="section__description">
+        Consistent spacing scale, border radius, and shadows for harmonious layouts.
+      </p>
+
+      <!-- Spacing Scale -->
+      <h3 class="section__subtitle">Spacing Scale</h3>
+      <div class="spacing-scale">
+        <div *ngFor="let space of spacingValues" class="spacing-item">
+          <div class="spacing-item__visual">
+            <div class="spacing-item__box" [style.width.rem]="space.value"></div>
+          </div>
+          <div class="spacing-item__info">
+            <code class="spacing-item__name">space({{ space.name }})</code>
+            <span class="spacing-item__value">{{ space.value }} / {{ space.pixels }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Border Radius -->
+      <h3 class="section__subtitle">Border Radius</h3>
+      <div class="radius-grid">
+        <div *ngFor="let radius of radiusValues" class="radius-item">
+          <div class="radius-item__visual" [ngClass]="'radius-item__visual--' + radius.name"></div>
+          <div class="radius-item__info">
+            <code class="radius-item__name">{{ radius.name }}</code>
+            <span class="radius-item__value">{{ radius.value }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shadows -->
+      <h3 class="section__subtitle">Shadows</h3>
+      <div class="shadow-grid">
+        <div *ngFor="let level of shadowLevels" class="shadow-item">
+          <div class="shadow-item__box" [ngClass]="'shadow-item__box--' + level"></div>
+          <code class="shadow-item__label">{{ level }}</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPONENTS SECTION -->
+    <section *ngIf="selectedTab === 'components'" class="section">
+      <h2 class="section__title">Components</h2>
+      <p class="section__description">
+        Pre-built components using design system mixins and tokens.
+      </p>
+
+      <!-- Buttons -->
+      <h3 class="section__subtitle">Buttons</h3>
+      <div class="component-showcase">
+        <button class="btn" (click)="onButtonClick('primary')">
+          Primary Button
+        </button>
+        <button class="btn btn--secondary" (click)="onButtonClick('secondary')">
+          Secondary Button
+        </button>
+        <button class="btn btn--ghost" (click)="onButtonClick('ghost')">
+          Ghost Button
+        </button>
+        <button class="btn btn--danger" (click)="onButtonClick('danger')">
+          Danger Button
+        </button>
+      </div>
+
+      <!-- Cards -->
+      <h3 class="section__subtitle">Cards</h3>
+      <div class="cards-showcase">
+        <div class="card">
+          <h4 class="card__title">Card Component</h4>
+          <p class="card__text">
+            This card uses the <code>@include card(md)</code> mixin with elevation,
+            rounded corners, and proper spacing.
+          </p>
+          <a href="#" class="link">Learn more →</a>
+        </div>
+        <div class="card card--elevated">
+          <h4 class="card__title">Elevated Card</h4>
+          <p class="card__text">
+            Higher elevation creates more visual hierarchy and emphasis.
+          </p>
+        </div>
+      </div>
+
+      <!-- Badges -->
+      <h3 class="section__subtitle">Badges</h3>
+      <div class="component-showcase">
+        <span class="badge badge--primary">Primary</span>
+        <span class="badge badge--success">Success</span>
+        <span class="badge badge--warning">Warning</span>
+        <span class="badge badge--danger">Danger</span>
+      </div>
+    </section>
+
+    <!-- FORMS SECTION -->
+    <section *ngIf="selectedTab === 'forms'" class="section">
+      <h2 class="section__title">Form Elements</h2>
+      <p class="section__description">
+        Accessible, consistent form controls with validation states.
+      </p>
+
+      <form class="demo-form" (ngSubmit)="onFormSubmit()">
+        <!-- Text Input -->
+        <div class="form-group">
+          <label class="form-label" for="text-input">Text Input</label>
+          <input
+            type="text"
+            id="text-input"
+            class="input"
+            placeholder="Enter text..."
+            [(ngModel)]="formValue.text"
+            name="text">
+          <span class="form-helper">Helper text for additional context</span>
+        </div>
+
+        <!-- Email Input with Validation -->
+        <div class="form-group">
+          <label class="form-label" for="email-input">Email (with error state)</label>
+          <input
+            type="email"
+            id="email-input"
+            class="input input--invalid"
+            placeholder="email@example.com"
+            [(ngModel)]="formValue.email"
+            name="email">
+          <span class="form-error">Please enter a valid email address</span>
+        </div>
+
+        <!-- Select -->
+        <div class="form-group">
+          <label class="form-label" for="select-input">Select</label>
+          <select
+            id="select-input"
+            class="input"
+            [(ngModel)]="formValue.select"
+            name="select">
+            <option value="">Choose an option...</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+        </div>
+
+        <!-- Textarea -->
+        <div class="form-group">
+          <label class="form-label" for="textarea-input">Textarea</label>
+          <textarea
+            id="textarea-input"
+            class="input"
+            rows="4"
+            placeholder="Enter longer text..."
+            [(ngModel)]="formValue.textarea"
+            name="textarea"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn">Submit Form</button>
+      </form>
+    </section>
+
+    <!-- EFFECTS SECTION -->
+    <section *ngIf="selectedTab === 'effects'" class="section">
+      <h2 class="section__title">Interactive Effects</h2>
+      <p class="section__description">
+        Motion, transitions, and micro-interactions that bring the UI to life.
+      </p>
+
+      <!-- Motion Demo -->
+      <h3 class="section__subtitle">Transitions & Motion</h3>
+      <div class="motion-demo">
+        <div class="motion-box motion-box--fast">
+          <span>Fast (120ms)</span>
+        </div>
+        <div class="motion-box motion-box--base">
+          <span>Base (200ms)</span>
+        </div>
+        <div class="motion-box motion-box--slow">
+          <span>Slow (320ms)</span>
+        </div>
+      </div>
+
+      <!-- Interactive States -->
+      <h3 class="section__subtitle">Interactive States</h3>
+      <div class="interactive-demo">
+        <button class="interactive-btn">
+          Hover for lift effect
+        </button>
+        <a href="#" class="interactive-link">
+          Interactive link with underline
+        </a>
+      </div>
+
+      <!-- Focus States -->
+      <h3 class="section__subtitle">Focus Rings (Accessibility)</h3>
+      <div class="focus-demo">
+        <button class="focus-demo__btn">Tab to focus me</button>
+        <input type="text" class="focus-demo__input" placeholder="Focus on me with Tab">
+      </div>
+    </section>
+
+  </main>
+</div>

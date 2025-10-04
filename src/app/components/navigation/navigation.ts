@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit} from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
-import { Cta } from '../../core/cta/cta';
+import { Cta } from '../cta/cta';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { TranslateButton } from "../translate-button/translate-button";
 

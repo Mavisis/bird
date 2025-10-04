@@ -15,7 +15,7 @@ interface TypographyExample {
 
 @Component({
   selector: 'app-playground',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule ],
   templateUrl: './playground.html',
   styleUrl: './playground.scss'
 })

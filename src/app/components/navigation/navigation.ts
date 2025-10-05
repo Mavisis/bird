@@ -3,13 +3,14 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 import { Cta } from '../cta/cta';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
 import { TranslateButton } from "../translate-button/translate-button";
+import { Login } from '../login/login';
 
 
 @Component({
   selector: 'NavigationComponent',
   templateUrl: './navigation.html',
   styleUrls: ['./navigation.scss'],
-  imports: [RouterLink, RouterLinkActive, Cta, TranslatePipe, TranslateButton]
+  imports: [RouterLink, RouterLinkActive, Cta, TranslatePipe, TranslateButton, Login]
 })
 export class NavigationComponent implements OnInit {
   

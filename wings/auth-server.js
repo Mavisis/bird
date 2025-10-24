@@ -7,6 +7,8 @@ const app = express();
 // Enable CORS
 app.use(cors());
 
+// If you use cookies/sessions behind a proxy like Nginx/ALB:
+app.set('trust proxy', 1); // so secure cookies work correctly
 // Parse JSON bodies
 app.use(express.json());
 
@@ -18,6 +20,13 @@ const users = [
     password: "admin123",
     role: "admin",
     email: "admin@example.com"
+  },
+  {
+    id: 2,
+    username: "mharinck@998",
+    password: "Mha123$",
+    role: "user",
+    email: "marcharinckschool@gmail.com"
   }
 ];
 
